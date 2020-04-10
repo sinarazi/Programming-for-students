@@ -1,2 +1,2 @@
 # Large-Digit-Calculator
-Large digit calculator with C.
+Large digit (100 digit) calculator with C.
