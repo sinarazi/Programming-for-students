@@ -6,3 +6,4 @@ In this project, by using prefix and infix and postfix algorithm, to show arithm
 ### Group members:
 - [@amirheidarikhoram](https://github.com/amirheidarikhoram)
 - [@MPCL5](https://github.com/MPCL5)
+- [@sinarazi](https://github.com/sinarazi)
