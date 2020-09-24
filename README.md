@@ -1,2 +1,3 @@
 # Large-Digit-Calculator
-Large digit (100 digit) calculator with C.
+Implementing a large digit (100 digits) calculator in C.
+- based on the maktabkhone project
