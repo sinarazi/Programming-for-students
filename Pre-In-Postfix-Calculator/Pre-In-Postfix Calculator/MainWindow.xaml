@@ -1,0 +1,171 @@
+﻿<Window  
+    x:Class="Calculator.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:Calculator"
+    mc:Ignorable="d"
+    Icon="ico.ico"
+    AllowsTransparency="False"
+    WindowStyle="SingleBorderWindow"
+    WindowStartupLocation="CenterScreen"   
+    Title="Calculator" Height="490" Width="788" MaxHeight="490" MaxWidth="788" MinHeight="490" MinWidth="688">
+    <Window.Background>
+        <SolidColorBrush Opacity="1" Color="#1D1D1D"/>
+    </Window.Background>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="4*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*" />
+            <ColumnDefinition Width="21*"/>
+            <ColumnDefinition Width="0" />
+        </Grid.ColumnDefinitions>
+        <Grid Name="HeadMenu" Grid.ColumnSpan="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+            <Border Grid.ColumnSpan ="2" BorderBrush="#7cebb0" BorderThickness="0 0 0 2" Margin="20 0 20 0" ></Border>
+            <Grid Name="LeftHeadFixSelect" Grid.Column="0" Margin="20 0 0 5" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Button Name="Pre" Content="Prefix" Cursor="Hand" Click="FixChange" Grid.Column="0" FontFamily="Raleway" Foreground="#bdbdbd" VerticalAlignment="Center" FontSize="16" Background="Transparent" BorderBrush="Transparent" Height="56" Margin="0,10,0,0" ></Button>
+                <Button Name="In" Content="Infix" Cursor="Hand" Click="FixChange" Grid.Column="1" FontFamily="Raleway" Foreground="#bdbdbd" VerticalAlignment="Center" FontSize="16" Background="Transparent" BorderBrush="Transparent" Height="56" Margin="0,10,0,0" ></Button>
+                <Button Name="Post" Content="Postfix" Cursor="Hand" Click="FixChange" Grid.Column="2" FontFamily="Raleway" Foreground="#bdbdbd" VerticalAlignment="Center" FontSize="16" Background="Transparent" BorderBrush="Transparent" Height="56" Margin="0,10,0,0" ></Button>
+            </Grid>
+            <Grid Name="RightHeadHistory" Grid.Column="1" Margin="0 0 10 5"  >
+                <!--<Button Name="Hist" Content="History" Cursor="Hand" Click="FixChange" Grid.Column="0" FontFamily="Raleway" Foreground="#bdbdbd" VerticalAlignment="Center" FontSize="16" Background="Transparent" BorderBrush="Transparent" Height="56" Margin="0,10,10,0" HorizontalAlignment="Right" ></Button>-->
+            </Grid>
+        </Grid>
+        <Grid Name="ResultArea" Grid.Row="1" Grid.ColumnSpan="2" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="2*" />
+            </Grid.RowDefinitions>
+            <TextBox Name="Rbox1" Background="#5c5c5c" Grid.Row="0" Margin="20 2 20 0" BorderThickness="0" Foreground="White" FontFamily="Orienta" FontSize="20" TextAlignment="Right" Padding="20" >
+
+            </TextBox>
+            <TextBlock Name="Rbox2" Background="#5c5c5c" Grid.Row="1" Margin="20 0 20 10" FontFamily="Orienta5" Foreground="#c5c5c7" FontSize="16" TextAlignment="Right" Padding="10"  >
+                0.0
+            </TextBlock>
+        </Grid>
+        <Grid Name="ButtonArea" Grid.Row="2" Margin="60 10 60 20" Grid.ColumnSpan="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Margin="30 0 30 0" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <Button Grid.Row="0" Grid.Column="0" Name="PLeft" Content="(" Click="OP_Click" FontFamily="Raleway" FontSize="16" Margin="2" Background="Transparent" Foreground="White" BorderBrush="#757575" BorderThickness="1" ></Button>
+                <Button Grid.Row="0" Grid.Column="1" Name="PRight" Content=")" Click="OP_Click" FontFamily="Raleway" FontSize="16" Margin="2" Background="Transparent" Foreground="White" BorderBrush="#757575" BorderThickness="1" ></Button>
+                <Button Grid.Row="0" Grid.Column="2" Name="log" Content="log" Click="OP_Click" FontFamily="Raleway" FontSize="16" Margin="2" Background="Transparent" Foreground="White" BorderBrush="#757575" BorderThickness="1" ></Button>
+                <Button Grid.Row="0" Grid.Column="3" Name="lgn" Content="lgn" Click="OP_Click" FontFamily="Raleway" FontSize="16" Margin="2" Background="Transparent" Foreground="White" BorderBrush="#757575" BorderThickness="1" ></Button>
+                <Button Grid.Row="0" Grid.Column="4" Name="ExpPow" Click="OP_Click" FontFamily="Raleway" FontSize="16" Margin="2" Background="Transparent" Foreground="White" BorderBrush="#757575" BorderThickness="1" >
+                    <Border BorderBrush="Transparent" BorderThickness="0">
+                        <StackPanel Orientation="Horizontal"  >
+                            <TextBlock VerticalAlignment="Bottom" HorizontalAlignment="Left" Foreground="White" Background="Transparent" Height="24" Width="13" >e</TextBlock>
+                            <TextBlock VerticalAlignment="Top" Foreground="White" Background="Transparent" RenderTransformOrigin="1.308,-0.254" Height="37" Width="12">x</TextBlock>
+                        </StackPanel>
+                    </Border>
+                </Button>
+
+                <Button Grid.Row="1" Grid.Column="0" Name="Sin" Content="sin" Click="OP_Click" FontFamily="Raleway" FontSize="16" Margin="2" Background="Transparent" Foreground="White" BorderBrush="#757575" BorderThickness="1" ></Button>
+                <Button Grid.Row="1" Grid.Column="1" Name="Cos" Content="cos" Click="OP_Click" FontFamily="Raleway" FontSize="16" Margin="2" Background="Transparent" Foreground="White" BorderBrush="#757575" BorderThickness="1" ></Button>
+                <Button Grid.Row="1" Grid.Column="2" Name="Tan" Content="tan" Click="OP_Click" FontFamily="Raleway" FontSize="16" Margin="2" Background="Transparent" Foreground="White" BorderBrush="#757575" BorderThickness="1" ></Button>
+                <Button Grid.Row="1" Grid.Column="3" Name="Π" Content="Π" Click="OP_Click" FontFamily="Raleway" FontSize="16" Margin="2" Background="Transparent" Foreground="White" BorderBrush="#757575" BorderThickness="1" ></Button>
+                <Button Grid.Row="1" Grid.Column="4" Name="e" Content="e" Click="OP_Click" FontFamily="Raleway" FontSize="16" Margin="2" Background="Transparent" Foreground="White" BorderBrush="#757575" BorderThickness="1" ></Button>
+
+                <Button Grid.Row="2" Grid.Column="0" Name="Inv" Content="1/x" Click="OP_Click" FontFamily="Raleway" FontSize="16" Margin="2" Background="Transparent" Foreground="White" BorderBrush="#757575" BorderThickness="1" ></Button>
+                <Button Grid.Row="2" Grid.Column="1" Name="nFact" Content="n!" Click="OP_Click" FontFamily="Raleway" FontSize="16" Margin="2" Background="Transparent" Foreground="White" BorderBrush="#757575" BorderThickness="1" ></Button>
+                <Button Grid.Row="2" Grid.Column="2" Name="PowTwo" Click="OP_Click" FontFamily="Raleway" FontSize="16" Margin="2" Background="Transparent" Foreground="White" BorderBrush="#757575" BorderThickness="1" >
+                    <Border BorderBrush="Transparent" BorderThickness="0">
+                        <StackPanel Orientation="Horizontal"  >
+                            <TextBlock VerticalAlignment="Bottom" HorizontalAlignment="Left" Foreground="White" Background="Transparent" Height="26" Width="14" >x</TextBlock>
+                            <TextBlock VerticalAlignment="Top" Foreground="White" Background="Transparent" RenderTransformOrigin="1.308,-0.254" Height="36" Width="11">2</TextBlock>
+                        </StackPanel>
+                    </Border>
+                </Button>
+                <Button Grid.Row="2" Grid.Column="3" Name="TenPow" Click="OP_Click" FontFamily="Raleway" FontSize="16" Margin="2" Background="Transparent" Foreground="White" BorderBrush="#757575" BorderThickness="1" >
+                    <Border BorderBrush="Transparent" BorderThickness="0">
+                        <StackPanel Orientation="Horizontal"  >
+                            <TextBlock VerticalAlignment="Bottom" HorizontalAlignment="Left" Foreground="White" Background="Transparent" Height="24" Width="18" >10</TextBlock>
+                            <TextBlock VerticalAlignment="Top" Foreground="White" Background="Transparent" RenderTransformOrigin="1.308,-0.254" Height="37" Width="15">x</TextBlock>
+                        </StackPanel>
+                    </Border>
+                </Button>
+                <Button Grid.Row="2" Grid.Column="4" Name="XPowY" Click="OP_Click" FontFamily="Raleway" FontSize="16" Margin="2" Background="Transparent" Foreground="White" BorderBrush="#757575" BorderThickness="1" >
+                    <Border BorderBrush="Transparent" BorderThickness="0">
+                        <StackPanel Orientation="Horizontal"  >
+                            <TextBlock VerticalAlignment="Bottom" HorizontalAlignment="Left" Foreground="White" Background="Transparent" Height="24" Width="13" >x</TextBlock>
+                            <TextBlock VerticalAlignment="Top" Foreground="White" Background="Transparent" RenderTransformOrigin="1.308,-0.254" Height="37" Width="15">y</TextBlock>
+                        </StackPanel>
+                    </Border>
+                </Button>
+
+                <Button Grid.Row="3" Grid.Column="0" Name="Minus" Content="-" Click="OP_Click" FontFamily="Raleway" FontSize="24" Margin="2" Background="Transparent" Foreground="White" BorderBrush="#757575" BorderThickness="1" ></Button>
+                <Button Grid.Row="3" Grid.Column="1" Name="Sum" Content="+" Click="OP_Click" FontFamily="Raleway" FontSize="24" Margin="2" Background="Transparent" Foreground="White" BorderBrush="#757575" BorderThickness="1" ></Button>
+                <Button Grid.Row="3" Grid.Column="2" Name="div" Content="/" Click="OP_Click" FontFamily="Raleway" FontSize="16" Margin="2" Background="Transparent" Foreground="White" BorderBrush="#757575" BorderThickness="1" ></Button>
+                <Button Grid.Row="3" Grid.Column="3" Name="prod" Content="x" Click="OP_Click" FontFamily="Raleway" FontSize="16" Margin="2" Background="Transparent" Foreground="White" BorderBrush="#757575" BorderThickness="1" ></Button>
+                <Button Grid.Row="3" Grid.Column="4" Name="exe" Content="=" Click="Evaluation" FontFamily="Raleway" FontSize="30" Margin="2" Background="#1e51fa" Foreground="White" BorderBrush="#757575" BorderThickness="1" ></Button>
+
+            </Grid>
+            <Grid Grid.Column="1" Margin="20 0 20 0"  >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <Button Grid.Row="0" Grid.Column="0" Name="Seven" Content="7" Click="NUMOP_Click" FontFamily="Raleway" FontSize="16" Margin="2" Background="Transparent" Foreground="White" BorderBrush="#757575" BorderThickness="1" ></Button>
+                <Button Grid.Row="0" Grid.Column="1" Name="Eigth" Content="8" Click="NUMOP_Click" FontFamily="Raleway" FontSize="16" Margin="2" Background="Transparent" Foreground="White" BorderBrush="#757575" BorderThickness="1" ></Button>
+                <Button Grid.Row="0" Grid.Column="2" Name="Nine" Content="9" Click="NUMOP_Click" FontFamily="Raleway" FontSize="16" Margin="2" Background="Transparent" Foreground="White" BorderBrush="#757575" BorderThickness="1" ></Button>
+                <Button Grid.Row="0" Grid.Column="3" Name="Delete" Content="Del" Click="CMD_Click" FontFamily="Raleway" FontSize="16" Margin="2" Background="Transparent" Foreground="White" BorderBrush="#757575" BorderThickness="1" ></Button>
+
+
+                <Button Grid.Row="1" Grid.Column="0" Name="Four" Content="4" Click="NUMOP_Click" FontFamily="Raleway" FontSize="16" Margin="2" Background="Transparent" Foreground="White" BorderBrush="#757575" BorderThickness="1" ></Button>
+                <Button Grid.Row="1" Grid.Column="1" Name="Five" Content="5" Click="NUMOP_Click" FontFamily="Raleway" FontSize="16" Margin="2" Background="Transparent" Foreground="White" BorderBrush="#757575" BorderThickness="1" ></Button>
+                <Button Grid.Row="1" Grid.Column="2" Name="Six" Content="6" Click="NUMOP_Click" FontFamily="Raleway" FontSize="16" Margin="2" Background="Transparent" Foreground="White" BorderBrush="#757575" BorderThickness="1" ></Button>
+                <Button Grid.Row="1" Grid.Column="3" Name="ClearE" Content="CE" Click="CMD_Click" FontFamily="Raleway" FontSize="16" Margin="2" Background="Transparent" Foreground="White" BorderBrush="#757575" BorderThickness="1" ></Button>
+
+
+                <Button Grid.Row="2" Grid.Column="0" Name="One" Content="1" Click="NUMOP_Click" FontFamily="Raleway" FontSize="16" Margin="2" Background="Transparent" Foreground="White" BorderBrush="#757575" BorderThickness="1" ></Button>
+                <Button Grid.Row="2" Grid.Column="1" Name="Two" Content="2" Click="NUMOP_Click" FontFamily="Raleway" FontSize="16" Margin="2" Background="Transparent" Foreground="White" BorderBrush="#757575" BorderThickness="1" ></Button>
+                <Button Grid.Row="2" Grid.Column="2" Name="Three" Content="3" Click="NUMOP_Click" FontFamily="Raleway" FontSize="16" Margin="2" Background="Transparent" Foreground="White" BorderBrush="#757575" BorderThickness="1" ></Button>
+                <Button Grid.Row="2" Grid.Column="3" Name="C" Content="C" Click="CMD_Click" FontFamily="Raleway" FontSize="16" Margin="2" Background="Transparent" Foreground="White" BorderBrush="#757575" BorderThickness="1" ></Button>
+
+
+                <Button Grid.Row="3" Grid.ColumnSpan="2" Name="Zero" Content="0" Click="NUMOP_Click" FontFamily="Raleway" FontSize="16" Margin="2" Background="Transparent" Foreground="White" BorderBrush="#757575" BorderThickness="1" ></Button>
+                <Button Grid.Row="3" Grid.Column="2" Name="Point" Content="." Click="NUMOP_Click" FontFamily="Raleway" FontSize="16" Margin="2" Background="Transparent" Foreground="White" BorderBrush="#757575" BorderThickness="1" ></Button>
+
+            </Grid>
+        </Grid>
+    </Grid>
+
+</Window>
