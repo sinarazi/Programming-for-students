@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1585059681 source:e:\projects\c\average\main.c
+	<stdio.h>
+	<stdlib.h>
+

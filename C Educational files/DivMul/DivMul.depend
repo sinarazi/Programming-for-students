@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1585597433 source:e:\projects\c\divmul\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

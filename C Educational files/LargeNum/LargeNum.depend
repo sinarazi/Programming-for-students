@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1585598059 source:e:\projects\c\largenum\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

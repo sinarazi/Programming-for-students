@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1585149107 source:e:\projects\c\stringmatching\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdbool.h>
+
