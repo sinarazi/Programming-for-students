@@ -7,4 +7,4 @@ In this section, we implememnted some basic codes with each other in order to fa
 - Large Digit Calculator: this project challenges students to develop a calculator which can perform multi digit opertaion, up to 100.
 
 ### C# project:
-We also designed a gui calculator based on prfix, postfix.
+We also designed a gui calculator based on prfix, postfix., based on ```Data structures & Algorithms```.
