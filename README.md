@@ -8,3 +8,6 @@ In this section, we implememnted some basic codes with each other in order to fa
 
 ### C# project:
 We also designed a gui calculator based on prfix, postfix., based on ```Data structures & Algorithms```.
+
+### Projects with Python:
+We designed cool projects with python, such as YouTube downloader.
