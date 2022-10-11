@@ -11,3 +11,6 @@ We also designed a gui calculator based on prfix, postfix., based on ```Data str
 
 ### Projects with Python:
 We designed cool projects with python, such as YouTube downloader.
+
+### Cpp project:
+```Fast inverse square root```: a magical number which is used in some games.
